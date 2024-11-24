@@ -1,0 +1,10 @@
+[package]
+name = "ZKWave"
+version = "0.1.0"
+edition = "2021"
+authors = ["Amirhossein Azarpour <amirh.eth@gmail.com>"]
+[dependencies]
+hound = "3.4"
+ndarray = "0.15.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
