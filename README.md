@@ -1,7 +1,5 @@
 #  📡 **ZkWave: Transforming Voice into Secure Proofs** 🎤🔐
 
-![ZkWave Banner](https://via.placeholder.com/1200x400?text=ZkWave+-+Voice+Meets+Zero-Knowledge+Proofs)
-
 ## 🚀 **Overview**
 
 **ZkWave** is an innovative project that combines audio signal processing, polynomial mathematics, and zero-knowledge cryptography. With **ZkWave**, we securely convert voice data into mathematical polynomials and leverage **Zero-Knowledge Proofs (ZKP)** to verify voice-based information without exposing sensitive data.
