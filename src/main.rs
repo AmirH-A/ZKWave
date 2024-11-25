@@ -84,12 +84,12 @@ fn fit_polynomial(samples: &[f32], degree: usize) -> Result<Vec<f64>, Box<dyn st
         }
     }
 
-    let lhs = vandermonde.t().dot(&vandermonde); // V^T * V
-    let lambda = 1e-6; // Regularization parameter
-    let lhs = &lhs + lambda * Array2::eye(lhs.nrows()); // Regularized LHS
+    let lhs = vandermonde.t().dot(&vandermonde); 
+    let lambda = 1e-6; 
+    let lhs = &lhs + lambda * Array2::eye(lhs.nrows()); 
     let rhs = vandermonde.t().dot(&y); // V^T * y
 
-    let coefficients = solve_linear_system(lhs, rhs)?; // Solve Ax = b
+    let coefficients = solve_linear_system(lhs, rhs)?;
     Ok(coefficients.to_vec())
 }
 
