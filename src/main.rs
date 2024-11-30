@@ -4,9 +4,9 @@ use serde::Serialize;
 
 #[derive(Serialize)]
 struct CircomInput {
-    coeffs: Vec<f64>,
-    x: f64,
-    y: f64,
+    coeffs: Vec<i64>,
+    x: i64,
+    y: i64,
 }
 
 fn load_wav(file_path: &str) -> Result<Vec<f32>, Box<dyn std::error::Error>> {
@@ -103,24 +103,31 @@ fn evaluate_polynomial(coeffs: &[f64], x: f64) -> f64 {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let file_path = "sample.wav";
-    println!("Reading WAV file: {}", file_path);
-
     let samples = load_wav(file_path)?;
-    println!("Loaded {} audio samples.", samples.len());
-
     let degree = 5;
-    let coeffs = fit_polynomial(&samples, degree)?;
-    println!("Fitted polynomial coefficients: {:?}", coeffs);
 
-    let x = 10.0;
-    let y = evaluate_polynomial(&coeffs, x);
+    let scale_factor = 1e6; // Scale to integers
+    let coeffs = fit_polynomial(&samples, degree)?
+        .iter()
+        .map(|&c| (c * scale_factor).round() as i64)
+        .collect::<Vec<_>>();
+    let x = 10; // Already an integer
+    let y = evaluate_polynomial(
+        &coeffs
+            .iter()
+            .map(|&c| c as f64 / scale_factor)
+            .collect::<Vec<_>>(),
+        x as f64,
+    );
+    let scaled_y = (y * scale_factor).round() as i64;
 
-    let circom_input = CircomInput { coeffs, x, y };
+    let circom_input = CircomInput {
+        coeffs,
+        x,
+        y: scaled_y,
+    };
 
-    let output_file = "circom_input.json";
-    let json = serde_json::to_string_pretty(&circom_input)?;
-    std::fs::write(output_file, json)?;
-    println!("Circom input saved to {}", output_file);
-
+    let output_file = "input.json";
+    std::fs::write(output_file, serde_json::to_string_pretty(&circom_input)?)?;
     Ok(())
 }

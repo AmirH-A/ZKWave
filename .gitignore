@@ -1,1 +1,13 @@
 /target
+*.ptau
+*.r1cs
+*.sym
+temp
+circuit/*.json
+data/*.json
+circuit/wave_*
+
+.vscode/
+.env
+
+output.json
