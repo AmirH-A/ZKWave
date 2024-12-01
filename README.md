@@ -17,11 +17,6 @@
 - 🛡️ **Zero-Knowledge Encryption**  
   Enable secure and private proof generation using zk-SNARKs or zk-STARKs.
 
-- ⚡ **Real-World Applications**  
-  - Secure voice authentication systems.
-  - Privacy-preserving voice analytics.
-  - Verifiable voice-based communication.
-
 ---
 
 ## 📚 **How It Works**
