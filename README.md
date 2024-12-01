@@ -56,6 +56,39 @@
    Analyze voice features without exposing sensitive data.
 
 ---
+## 📋 Project Completion Checklist  
+
+### **1. Voice Processing Implementation**  
+- [X] Write Rust code to load and process WAV audio files.  
+- [X] Implement a function to extract audio samples from the WAV file.  
+- [X] Normalize and fit the audio samples to a polynomial using regression.  
+- [X] Serialize the polynomial coefficients and evaluation data into a JSON input format for Circom.  
+
+### **2. Circom Circuit Development**  
+- [ ] Design a Circom circuit for verifying the polynomial evaluation (`VerifyPolynomial`).  
+- [ ] Add debug signals to the circuit for easier debugging and validation.  
+- [ ] Compile the Circom circuit into `r1cs`, `wasm`, and other required formats.  
+- [ ] Test the circuit using valid JSON inputs to ensure correctness.  
+- [ ] Optimize the circuit for performance and size.  
+
+### **3. Zero-Knowledge Proof Integration**  
+- [ ] Set up the Groth16 proving system using `snarkjs`.  
+- [ ] Generate the trusted setup phase (`.zkey` file) using a precomputed PTAU.  
+- [ ] Create the proof and verify it locally with `snarkjs`.  
+- [ ] Export the proof and verification key for use in the mini app.  
+
+### **4. Private TON Mini App**  
+- [ ] Design and implement the private TON mini app interface.  
+- [ ] Integrate the zero-knowledge proof verification in the mini app.  
+- [ ] Implement secure storage and handling for sensitive user data.  
+
+---
+
+### **🚀 Future Enhancements (Optional)**  
+- [ ] Extend support for additional audio file formats (e.g., MP3, FLAC).  
+- [ ] Implement more efficient polynomial fitting algorithms.  
+- [ ] Explore alternative zero-knowledge proof systems for optimization.  
+---
 
 ## 🤝 **Contributing**
 
