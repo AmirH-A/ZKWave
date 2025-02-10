@@ -22,8 +22,8 @@ def extract_mfcc(file_path, max_len=MAX_LEN):
 
 
 # Dataset preparation
-TARGET_DIR = "data/target"  # Your voice samples
-OTHER_DIR = "data/others"  # Other voices
+TARGET_DIR = "data/target"  
+OTHER_DIR = "data/others"  
 
 X, y = [], []
 
