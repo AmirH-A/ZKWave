@@ -35,14 +35,6 @@
 
 ---
 
-## 🛠️ **Tech Stack**
-
-- **Programming Language:** Rust 🦀  
-- **Cryptographic Framework:** Circom, snarkjs 🔐  
-- **Audio Processing:** Rust's `wav` and `ndarray` crates  
-- **Blockchain Integration (Optional):** zkSync for decentralized verification  
-
----
 
 ## 🌐 **Real-World Use Cases**
 
